@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
-import { ArrowUpRight, Mail, MapPin, Clock, GitFork, Link, X } from "lucide-react"
+import { ArrowUpRight, Mail, MapPin, Clock } from "lucide-react"
+import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram, FaDribbble } from "react-icons/fa6"
 
 type FormData = {
   name: string
@@ -134,7 +135,7 @@ export function Contact() {
                       className="text-sm transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontWeight: 400, color: "oklch(0.975 0.010 75)" }}
                     >
-                      marcus@example.com
+                      svaidya.official@gmail.com
                     </div>
                   </div>
                 </a>
@@ -149,7 +150,7 @@ export function Contact() {
                   <div>
                     <div className="annotation" style={{ color: "oklch(0.975 0.010 75)", opacity: 0.4, marginBottom: "0.25rem" }}>Location</div>
                     <div style={{ fontFamily: "var(--font-inter)", fontWeight: 400, fontSize: "0.9375rem", color: "oklch(0.975 0.010 75)" }}>
-                      New York, NY — Remote Available
+                      Nagput, Maharashtra — Remote Available
                     </div>
                   </div>
                 </div>
@@ -166,9 +167,9 @@ export function Contact() {
                     <div style={{ fontFamily: "var(--font-inter)", fontWeight: 400, fontSize: "0.9375rem", color: "oklch(0.975 0.010 75)" }}>
                       Open to new projects
                     </div>
-                    <div style={{ fontFamily: "var(--font-inter)", fontWeight: 300, fontSize: "0.8125rem", color: "var(--copper)" }}>
+                    {/* <div style={{ fontFamily: "var(--font-inter)", fontWeight: 300, fontSize: "0.8125rem", color: "var(--copper)" }}>
                       From Q1 2025
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -182,13 +183,17 @@ export function Contact() {
               <div className="annotation mb-4" style={{ color: "oklch(0.975 0.010 75)", opacity: 0.4 }}>Find me elsewhere</div>
               <div className="flex gap-4">
                 {[
-                  { icon: GitFork, label: "GitHub", href: "#" },
-                  { icon: Link, label: "LinkedIn", href: "#" },
-                  { icon: X, label: "Twitter", href: "#" },
+                  { icon: FaGithub, label: "GitHub", href: "https://github.com/yourhandle" },
+                  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com/in/yourhandle" },
+                  { icon: FaXTwitter, label: "X (Twitter)", href: "https://x.com/yourhandle" },
+                  { icon: FaInstagram, label: "Instagram", href: "https://instagram.com/yourhandle" },
+                  { icon: FaDribbble, label: "Dribbble", href: "https://dribbble.com/yourhandle" },
                 ].map(({ icon: Icon, label, href }) => (
                   <a
                     key={label}
                     href={href}
+                    target="_blank"
+                    rel="noreferrer"
                     aria-label={label}
                     className="w-10 h-10 border flex items-center justify-center transition-all duration-200 group"
                     style={{
