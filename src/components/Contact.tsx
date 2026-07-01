@@ -11,6 +11,13 @@ type FormData = {
   message: string
 }
 
+const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL
+const LOCATION = import.meta.env.VITE_LOCATION
+const GITHUB_URL = import.meta.env.VITE_GITHUB_URL
+const LINKEDIN_URL = import.meta.env.VITE_LINKEDIN_URL
+const INSTAGRAM_URL = import.meta.env.VITE_INSTAGRAM_URL
+const TWITTER_URL = import.meta.env.VITE_TWITTER_URL
+
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -28,7 +35,7 @@ export function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "d874f57b-a71b-46e1-8744-78416bade9fb",
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
           name: data.name,
           email: data.email,
           message: data.message,
@@ -157,7 +164,7 @@ export function Contact() {
                       className="text-sm transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontWeight: 400, color: "oklch(0.975 0.010 75)" }}
                     >
-                      svaidya.official@gmail.com
+                      {CONTACT_EMAIL}
                     </div>
                   </div>
                 </a>
@@ -172,7 +179,7 @@ export function Contact() {
                   <div>
                     <div className="annotation" style={{ color: "oklch(0.975 0.010 75)", opacity: 0.4, marginBottom: "0.25rem" }}>Location</div>
                     <div style={{ fontFamily: "var(--font-inter)", fontWeight: 400, fontSize: "0.9375rem", color: "oklch(0.975 0.010 75)" }}>
-                      Nagpur, Maharashtra — Remote Available
+                      {LOCATION}
                     </div>
                   </div>
                 </div>
@@ -205,10 +212,10 @@ export function Contact() {
               <div className="annotation mb-4" style={{ color: "oklch(0.975 0.010 75)", opacity: 0.4 }}>Find me elsewhere</div>
               <div className="flex gap-4">
                 {[
-                  { icon: FaGithub, label: "GitHub", href: "https://github.com/saurabh7071" },
-                  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/saurabhxvaidya/" },
-                  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/saurabhxvaidya?igsh=ZWYyejkzdTQ4OXd3" },
-                  { icon: FaXTwitter, label: "X (Twitter)", href: "https://x.com/Saurab_hVaidya" },
+                  { icon: FaGithub, label: "GitHub", href: GITHUB_URL },
+                  { icon: FaLinkedinIn, label: "LinkedIn", href: LINKEDIN_URL },
+                  { icon: FaInstagram, label: "Instagram", href: INSTAGRAM_URL },
+                  { icon: FaXTwitter, label: "X (Twitter)", href: TWITTER_URL },
                   // { icon: FaDribbble, label: "Dribbble", href: "https://dribbble.com/yourhandle" },
                 ].map(({ icon: Icon, label, href }) => (
                   <a
