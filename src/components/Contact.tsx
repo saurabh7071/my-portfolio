@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
-import { ArrowUpRight, Mail, MapPin, Clock } from "lucide-react"
+import { ArrowUpRight, Mail, MapPin, Clock, RotateCcw } from "lucide-react"
 import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram, FaDribbble } from "react-icons/fa6"
 
 type FormData = {
@@ -13,6 +13,7 @@ type FormData = {
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const {
     register,
     handleSubmit,
@@ -21,10 +22,31 @@ export function Contact() {
   } = useForm<FormData>()
 
   const onSubmit = async (data: FormData) => {
-    await new Promise((r) => setTimeout(r, 1200))
-    console.log("Form submitted:", data)
-    setSubmitted(true)
-    reset()
+    setError(null)
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "d874f57b-a71b-46e1-8744-78416bade9fb",
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          replyto: data.email,
+          from_name: "Portfolio Contact Form",
+          subject: `New inquiry: ${data.subject}`,
+        }),
+      })
+      const result = await res.json()
+      if (result.success) {
+        setSubmitted(true)
+        reset()
+      } else {
+        setError("Something went wrong. Please try again or email me directly.")
+      }
+    } catch {
+      setError("Something went wrong. Please try again or email me directly.")
+    }
   }
 
   const inputStyle = {
@@ -150,7 +172,7 @@ export function Contact() {
                   <div>
                     <div className="annotation" style={{ color: "oklch(0.975 0.010 75)", opacity: 0.4, marginBottom: "0.25rem" }}>Location</div>
                     <div style={{ fontFamily: "var(--font-inter)", fontWeight: 400, fontSize: "0.9375rem", color: "oklch(0.975 0.010 75)" }}>
-                      Nagput, Maharashtra — Remote Available
+                      Nagpur, Maharashtra — Remote Available
                     </div>
                   </div>
                 </div>
@@ -183,11 +205,11 @@ export function Contact() {
               <div className="annotation mb-4" style={{ color: "oklch(0.975 0.010 75)", opacity: 0.4 }}>Find me elsewhere</div>
               <div className="flex gap-4">
                 {[
-                  { icon: FaGithub, label: "GitHub", href: "https://github.com/yourhandle" },
-                  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com/in/yourhandle" },
-                  { icon: FaXTwitter, label: "X (Twitter)", href: "https://x.com/yourhandle" },
-                  { icon: FaInstagram, label: "Instagram", href: "https://instagram.com/yourhandle" },
-                  { icon: FaDribbble, label: "Dribbble", href: "https://dribbble.com/yourhandle" },
+                  { icon: FaGithub, label: "GitHub", href: "https://github.com/saurabh7071" },
+                  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/saurabhxvaidya/" },
+                  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/saurabhxvaidya?igsh=ZWYyejkzdTQ4OXd3" },
+                  { icon: FaXTwitter, label: "X (Twitter)", href: "https://x.com/Saurab_hVaidya" },
+                  // { icon: FaDribbble, label: "Dribbble", href: "https://dribbble.com/yourhandle" },
                 ].map(({ icon: Icon, label, href }) => (
                   <a
                     key={label}
@@ -241,6 +263,31 @@ export function Contact() {
                 <p style={{ fontFamily: "var(--font-inter)", fontWeight: 300, color: "oklch(0.975 0.010 75)", opacity: 0.6 }}>
                   I'll respond within 24 hours. Looking forward to the conversation.
                 </p>
+
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-10 flex items-center gap-4 px-8 py-4 border transition-all duration-300 group"
+                  style={{
+                    borderColor: "var(--copper)",
+                    color: "var(--copper)",
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 500,
+                    fontSize: "0.8125rem",
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "var(--copper)"
+                    e.currentTarget.style.color = "var(--ivory)"
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent"
+                    e.currentTarget.style.color = "var(--copper)"
+                  }}
+                >
+                  <span>Send Another Message</span>
+                  <RotateCcw className="w-4 h-4 transition-transform duration-300 group-hover:-rotate-180" />
+                </button>
               </div>
             ) : (
               <form
@@ -249,6 +296,14 @@ export function Contact() {
                 style={{ borderColor: "oklch(0.975 0.010 75 / 0.1)" }}
                 noValidate
               >
+                {error && (
+                  <div
+                    className="mb-6 px-4 py-3 border annotation"
+                    style={{ borderColor: "var(--copper)", color: "var(--copper)" }}
+                  >
+                    {error}
+                  </div>
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
                   {/* Name */}
                   <div className="mb-8">

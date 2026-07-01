@@ -3,13 +3,49 @@ export function Footer() {
 
   return (
     <footer
-      className="pt-16 pb-10 border-t overflow-hidden"
+      className="relative pt-16 pb-10 border-t overflow-hidden"
       style={{
-        backgroundColor: "var(--charcoal)",
+        backgroundColor: "#050505",
         borderColor: "oklch(0.975 0.010 75 / 0.08)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      {/* Gloss highlight — soft light source from top */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.975 0.010 75 / 0.06), transparent 60%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Fine sheen sweep */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(115deg, transparent 30%, oklch(0.975 0.010 75 / 0.025) 48%, oklch(0.975 0.010 75 / 0.04) 50%, oklch(0.975 0.010 75 / 0.025) 52%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Bottom vignette for depth */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 100% 60% at 50% 120%, oklch(0.595 0.120 48 / 0.05), transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Reflective inner edge */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          boxShadow: "inset 0 1px 0 oklch(0.975 0.010 75 / 0.08), inset 0 -1px 0 oklch(0.975 0.010 75 / 0.03)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Big wordmark */}
         <div className="mb-10 lg:mb-14">
