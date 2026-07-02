@@ -2,7 +2,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { ArrowUpRight, Mail, MapPin, Clock, RotateCcw } from "lucide-react"
-import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram, FaDribbble } from "react-icons/fa6"
+import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram } from "react-icons/fa6"
 
 type FormData = {
   name: string
@@ -216,7 +216,6 @@ export function Contact() {
                   { icon: FaLinkedinIn, label: "LinkedIn", href: LINKEDIN_URL },
                   { icon: FaInstagram, label: "Instagram", href: INSTAGRAM_URL },
                   { icon: FaXTwitter, label: "X (Twitter)", href: TWITTER_URL },
-                  // { icon: FaDribbble, label: "Dribbble", href: "https://dribbble.com/yourhandle" },
                 ].map(({ icon: Icon, label, href }) => (
                   <a
                     key={label}
