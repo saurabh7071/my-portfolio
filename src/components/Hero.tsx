@@ -131,7 +131,7 @@ export function Hero() {
       </AnimatePresence>
 
       {/* Corner annotations */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.1 }}
@@ -139,8 +139,8 @@ export function Hero() {
         aria-hidden="true"
       >
         40.7128°N — 74.0060°W
-      </motion.div>
-      <motion.div
+      </motion.div> */}
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.1 }}
@@ -148,7 +148,7 @@ export function Hero() {
         aria-hidden="true"
       >
         Est. 2017 — Present
-      </motion.div>
+      </motion.div> */}
 
       {/* Vertical accent line */}
       <motion.div

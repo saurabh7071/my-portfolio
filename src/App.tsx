@@ -11,7 +11,7 @@ import { LazyMotion, domAnimation } from "framer-motion"
 const About = lazy(() => import("@/components/About").then(m => ({ default: m.About })))
 const Skills = lazy(() => import("@/components/Skills").then(m => ({ default: m.Skills })))
 const Projects = lazy(() => import("@/components/Projects").then(m => ({ default: m.Projects })))
-const Process = lazy(() => import("@/components/Process").then(m => ({ default: m.Process })))
+// const Process = lazy(() => import("@/components/Process").then(m => ({ default: m.Process })))
 const Experience = lazy(() => import("@/components/Experience").then(m => ({ default: m.Experience })))
 const Achievements = lazy(() => import("@/components/Achievements").then(m => ({ default: m.Achievements })))
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })))
@@ -43,7 +43,7 @@ export function App() {
       <div style={{ fontFamily: "var(--font-inter)" }}>
         <Cursor />
         <Navigation />
-        <GamificationHUD />
+        {/* <GamificationHUD /> */}
         <main>
           <Hero />
           <DoubleMarquee />
@@ -52,7 +52,7 @@ export function App() {
             <Skills />
             <Marquee variant="dark" speed={45} />
             <Projects />
-            <Process />
+            {/* <Process /> */}
             <Marquee variant="copper" speed={55} reverse />
             <Experience />
             <Achievements />

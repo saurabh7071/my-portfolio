@@ -9,10 +9,10 @@ const SECTIONS = [
   { id: "about", label: "Identity", number: "01", tagline: "Who I am" },
   { id: "skills", label: "Architecture", number: "02", tagline: "The technical stack" },
   { id: "projects", label: "Exhibition", number: "03", tagline: "Selected work" },
-  { id: "process", label: "Process", number: "04", tagline: "How I build" },
-  { id: "experience", label: "Record", number: "05", tagline: "Career timeline" },
-  { id: "faq", label: "FAQ", number: "06", tagline: "Common questions" },
-  { id: "contact", label: "Connect", number: "07", tagline: "Let's collaborate" },
+  // { id: "process", label: "Process", number: "04", tagline: "How I build" },
+  { id: "experience", label: "Record", number: "04", tagline: "Career timeline" },
+  { id: "faq", label: "FAQ", number: "05", tagline: "Common questions" },
+  { id: "contact", label: "Connect", number: "06", tagline: "Let's collaborate" },
 ]
 
 export function Navigation() {
