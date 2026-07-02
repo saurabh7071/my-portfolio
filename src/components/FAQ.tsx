@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m as motion, AnimatePresence } from "framer-motion"
 import { Accordion as AccordionPrimitive } from "radix-ui"
 import { Plus } from "lucide-react"
 import { fadeInUp, EASE_EXPO } from "@/lib/animations"

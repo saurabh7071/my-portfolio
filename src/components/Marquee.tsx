@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { m as motion } from "framer-motion"
 
 const BASE_TEXT = "FULL STACK ENGINEER  ·  NEW YORK, NY  ·  EST. 2017  ·  AVAILABLE FOR WORK  ·  ARCHITECTURE OF CODE  ·  REACT & TYPESCRIPT  ·  "
 const BASE_TEXT_2 = "PRECISION  ·  SYSTEMS THINKING  ·  STRUCTURAL CLARITY  ·  CRAFTSMANSHIP  ·  CONTINUOUS REFINEMENT  ·  BUILT TO LAST  ·  "

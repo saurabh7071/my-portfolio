@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m as motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import Lenis from "lenis"
 import { Logo } from "@/components/ui/logo.tsx"

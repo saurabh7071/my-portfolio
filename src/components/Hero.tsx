@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react"
-import { motion, useMotionValue, useTransform, AnimatePresence, MotionValue } from "framer-motion"
+import { m as motion, useMotionValue, useTransform, AnimatePresence, MotionValue } from "framer-motion"
 import { ArrowDownRight } from "lucide-react"
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number]

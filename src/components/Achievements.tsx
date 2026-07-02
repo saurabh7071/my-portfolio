@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { m as motion } from "framer-motion"
 import { fadeInUp } from "@/lib/animations"
 import { GitFork, Trophy, Star, Code2, Zap, Award } from "lucide-react"
 

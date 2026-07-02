@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m as motion, AnimatePresence } from "framer-motion"
 
 const SECTION_XP: Record<string, number> = {
   about: 150,

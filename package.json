@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/inter": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
     "@tailwindcss/vite": "^4.2.1",
     "class-variance-authority": "^0.7.1",
@@ -42,6 +44,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
+    "rollup-plugin-visualizer": "^6.0.11",
     "typescript": "~5.9.3",
     "vite": "^7.3.1"
   }
